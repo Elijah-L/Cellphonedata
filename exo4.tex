@@ -1,0 +1,472 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={TP\_EX3},
+  pdfauthor={vhinyg},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{TP\_EX3}
+\author{vhinyg}
+\date{28/09/2020}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab =}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{"cellphonedata.txt"}\NormalTok{, }\DataTypeTok{header =}\NormalTok{ T,}\DataTypeTok{sep =} \StringTok{";"}\NormalTok{,}\DataTypeTok{dec =} \StringTok{","}\NormalTok{)}
+
+\NormalTok{X =}\StringTok{ }\KeywordTok{cbind}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])}\OperatorTok{-}\DecValTok{2}\NormalTok{),tab[}\DecValTok{1}\OperatorTok{:}\NormalTok{(}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])}\OperatorTok{-}\DecValTok{2}\NormalTok{),}\DecValTok{1}\NormalTok{]) }
+\end{Highlighting}
+\end{Shaded}
+
+Affichages des données
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Ytest =}\StringTok{ }\NormalTok{tab[}\DecValTok{1}\OperatorTok{:}\NormalTok{(}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])}\OperatorTok{-}\DecValTok{2}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{)]}
+\NormalTok{Yfut =}\StringTok{ }\NormalTok{tab[(}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])}\OperatorTok{-}\DecValTok{1}\NormalTok{)}\OperatorTok{:}\NormalTok{(}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])),}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{)]}
+\NormalTok{Xtest =}\StringTok{ }\NormalTok{tab[}\DecValTok{1}\OperatorTok{:}\NormalTok{(}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])}\OperatorTok{-}\DecValTok{2}\NormalTok{),}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{)]}
+\NormalTok{Xfut =}\StringTok{ }\NormalTok{Yfut =}\StringTok{ }\NormalTok{tab[(}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])}\OperatorTok{-}\DecValTok{1}\NormalTok{)}\OperatorTok{:}\NormalTok{(}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])),}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{)]}
+\NormalTok{X1 =}\StringTok{ }\KeywordTok{cbind}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])}\OperatorTok{-}\DecValTok{2}\NormalTok{),Xtest)}
+\KeywordTok{plot}\NormalTok{(Xtest,Ytest,}\DataTypeTok{col =} \StringTok{'blue4'}\NormalTok{,}\DataTypeTok{xlab =} \StringTok{"Year"}\NormalTok{,}\DataTypeTok{ylab =} \StringTok{"Number of sale"}\NormalTok{,}\DataTypeTok{panel.first =} \KeywordTok{grid}\NormalTok{(}\DecValTok{10}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{exo4_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+The trend of the curve let us think that a linear model doesn't fit with
+data. The trend let us think about a \(atan\) or an \(tanh\) function
+between the model \(\mathbf{Y}\) and the variable \(\mathbf{X}\) However
+we are going to give a chance to the linear model then see his
+limitations on predictions
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cor}\NormalTok{(tab)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               year  EndUsers
+## year     1.0000000 0.9509108
+## EndUsers 0.9509108 1.0000000
+\end{verbatim}
+
+However, because \(\rho_{xy} = 0.95\) we are going to give a chance to
+the linear model then see his limitations on predictions. First it's to
+notice that this cross correlations term is close to 1 because most of
+data are in the middle of the distribution
+
+\mathbf{The linear model}
+
+Estimation de \(\^{\beta}\) and \(\^{Y}\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab1 =}\StringTok{ }\NormalTok{tab[}\DecValTok{1}\OperatorTok{:}\NormalTok{(}\KeywordTok{length}\NormalTok{(tab[,}\DecValTok{1}\NormalTok{])}\OperatorTok{-}\DecValTok{2}\NormalTok{),]}
+\NormalTok{(tab1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    year EndUsers
+## 1  2007   122.32
+## 2  2008   139.29
+## 3  2009   172.38
+## 4  2010   296.65
+## 5  2011   472.00
+## 6  2012   680.11
+## 7  2013   969.72
+## 8  2014  1244.74
+## 9  2015  1423.90
+## 10 2016  1495.96
+## 11 2017  1536.27
+## 12 2018  1556.27
+## 13 2019  1524.84
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modreg =}\StringTok{ }\KeywordTok{lm}\NormalTok{(EndUsers }\OperatorTok{~}\StringTok{ }\NormalTok{. , }\DataTypeTok{data =}\NormalTok{ tab1)}
+\KeywordTok{summary}\NormalTok{(modreg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = EndUsers ~ ., data = tab1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -260.95 -126.01  -13.31  118.19  232.00 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -297979.58   23611.08  -12.62 6.92e-08 ***
+## year            148.47      11.73   12.66 6.71e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 158.2 on 11 degrees of freedom
+## Multiple R-squared:  0.9358, Adjusted R-squared:  0.9299 
+## F-statistic: 160.2 on 1 and 11 DF,  p-value: 6.706e-08
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{betah =}\StringTok{ }\NormalTok{modreg}\OperatorTok{$}\NormalTok{coefficients}
+\NormalTok{betah }\CommentTok{#coefficient beta hat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  (Intercept)         year 
+## -297979.5765     148.4722
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Yhat =}\StringTok{ }\NormalTok{X1}\OperatorTok{%*%}\NormalTok{betah}
+\end{Highlighting}
+\end{Shaded}
+
+plot of the data estimated trend
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}\KeywordTok{plot}\NormalTok{(Xtest,Yhat,}\DataTypeTok{xlab =} \StringTok{"Year"}\NormalTok{,}\DataTypeTok{ylab =} \StringTok{"Number of sale"}\NormalTok{,}\DataTypeTok{panel.first =} \KeywordTok{grid}\NormalTok{(}\DecValTok{10}\NormalTok{)) }
+\KeywordTok{abline}\NormalTok{(betah[}\DecValTok{1}\NormalTok{],betah[}\DecValTok{2}\NormalTok{],}\DataTypeTok{col =} \DecValTok{2}\NormalTok{,}\DataTypeTok{lty =}\DecValTok{2}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{new =}\NormalTok{ T)}
+\KeywordTok{plot}\NormalTok{(Xtest,Ytest,}\DataTypeTok{col =} \StringTok{'blue4'}\NormalTok{,}\DataTypeTok{xlab =} \StringTok{"Year"}\NormalTok{,}\DataTypeTok{ylab =} \StringTok{"Number of sale"}\NormalTok{,}\DataTypeTok{panel.first =} \KeywordTok{grid}\NormalTok{(}\DecValTok{10}\NormalTok{))\}}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{exo4_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}\KeywordTok{plot}\NormalTok{(Xtest,Yhat }\OperatorTok{-}\StringTok{ }\NormalTok{Ytest,}\DataTypeTok{xlab =} \StringTok{"Year"}\NormalTok{,}\DataTypeTok{ylab =} \StringTok{"misfit"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{,}\DataTypeTok{panel.first =} \KeywordTok{grid}\NormalTok{(}\DecValTok{10}\NormalTok{))}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DataTypeTok{col =} \DecValTok{1}\NormalTok{,}\DataTypeTok{lty =}\DecValTok{2}\NormalTok{)\}}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{exo4_files/figure-latex/unnamed-chunk-5-2.pdf} we can
+see how bad is the linear model, it doesn't fit to data. And the trend
+show that a prediction will give data far from the reality.
+
+Exemple let's predict Year 2020 and 2021
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Xpred  =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2020}\NormalTok{,}\DecValTok{2021}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\NormalTok{Ypred =}\StringTok{ }\NormalTok{Xpred}\OperatorTok{%*%}\NormalTok{betah}
+\NormalTok{misfit =}\StringTok{ }\NormalTok{Ypred }\OperatorTok{-}\StringTok{ }\NormalTok{Yfut}
+\end{Highlighting}
+\end{Shaded}
+
+We are going to look a for a new model.
+
+ATTENTION !!!!!!
+
+PAS FINI!!!!!!! We are oing to try the sigmoid function on these data if
+\(y = f(x)\) with \(f(x) = \frac{1}{1+exp(-\lambda x)}\) We are going to
+estimate the best \(\lambda\) The inverse of \(f\) is \$f\^{}\{-1\}(x) =
+-(1/\lambda) * ln(\frac{1}{y}-1) = \alpha * ln(\frac{1}{y}-1) \$
+
+We are going to estimate \(\alpha\) through a linear regression between
+\(x = year\) and \(ln(\frac{1}{y}-1)\) avec \(y = N_{sale}\)
+
+Data
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Ytestb =}\StringTok{ }\OperatorTok{-}\KeywordTok{log}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{Ytest))}
+\KeywordTok{dim}\NormalTok{(tab)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 15  2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Y1 =}\StringTok{ }\KeywordTok{cbind}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\KeywordTok{length}\NormalTok{(Ytestb)),Ytestb)}
+\NormalTok{Y1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               Ytestb
+##  [1,] 1 0.0082088788
+##  [2,] 1 0.0072051612
+##  [3,] 1 0.0058180290
+##  [4,] 1 0.0033766704
+##  [5,] 1 0.0021208916
+##  [6,] 1 0.0014714324
+##  [7,] 1 0.0010317576
+##  [8,] 1 0.0008037035
+##  [9,] 1 0.0007025432
+## [10,] 1 0.0006686906
+## [11,] 1 0.0006511392
+## [12,] 1 0.0006427686
+## [13,] 1 0.0006560216
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab2 =}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{cbind}\NormalTok{(Xtest,Ytestb))}
+\NormalTok{tab2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Xtest       Ytestb
+## 1   2007 0.0082088788
+## 2   2008 0.0072051612
+## 3   2009 0.0058180290
+## 4   2010 0.0033766704
+## 5   2011 0.0021208916
+## 6   2012 0.0014714324
+## 7   2013 0.0010317576
+## 8   2014 0.0008037035
+## 9   2015 0.0007025432
+## 10  2016 0.0006686906
+## 11  2017 0.0006511392
+## 12  2018 0.0006427686
+## 13  2019 0.0006560216
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{regmod =}\StringTok{ }\KeywordTok{lm}\NormalTok{(Xtest }\OperatorTok{~}\StringTok{ }\NormalTok{., }\DataTypeTok{data =}\NormalTok{ tab2)}
+\KeywordTok{summary}\NormalTok{(regmod)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Xtest ~ ., data = tab2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.5489 -1.8921  0.0107  0.9592  3.6445 
+## 
+## Coefficients:
+##               Estimate Std. Error  t value Pr(>|t|)    
+## (Intercept)  2016.1645     0.7916 2546.862  < 2e-16 ***
+## Ytestb      -1233.2708   215.6790   -5.718 0.000135 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.041 on 11 degrees of freedom
+## Multiple R-squared:  0.7483, Adjusted R-squared:  0.7254 
+## F-statistic:  32.7 on 1 and 11 DF,  p-value: 0.0001345
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{betah2 =}\StringTok{ }\NormalTok{regmod}\OperatorTok{$}\NormalTok{coefficients}
+\NormalTok{lambda=}\StringTok{ }\NormalTok{betah2[}\DecValTok{2}\NormalTok{]}
+
+\NormalTok{Xhat2 =}\StringTok{ }\NormalTok{Y1 }\OperatorTok{%*%}\StringTok{ }\NormalTok{betah2}
+\NormalTok{Xhat2 }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]
+##  [1,] 2006.041
+##  [2,] 2007.279
+##  [3,] 2008.989
+##  [4,] 2012.000
+##  [5,] 2013.549
+##  [6,] 2014.350
+##  [7,] 2014.892
+##  [8,] 2015.173
+##  [9,] 2015.298
+## [10,] 2015.340
+## [11,] 2015.362
+## [12,] 2015.372
+## [13,] 2015.355
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(Xhat2,Ytestb)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{exo4_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+We have the \(\lambda\) for the simoid function now we can build the
+model
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Yhat2 =}\StringTok{ }\DecValTok{1}\OperatorTok{/}\NormalTok{(}\DecValTok{1}\OperatorTok{+}\KeywordTok{exp}\NormalTok{(lambda}\OperatorTok{*}\NormalTok{Xhat2))}
+\NormalTok{Xhat2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]
+##  [1,] 2006.041
+##  [2,] 2007.279
+##  [3,] 2008.989
+##  [4,] 2012.000
+##  [5,] 2013.549
+##  [6,] 2014.350
+##  [7,] 2014.892
+##  [8,] 2015.173
+##  [9,] 2015.298
+## [10,] 2015.340
+## [11,] 2015.362
+## [12,] 2015.372
+## [13,] 2015.355
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Ytestb 
+## -1233.271
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Yhat2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]
+##  [1,]    1
+##  [2,]    1
+##  [3,]    1
+##  [4,]    1
+##  [5,]    1
+##  [6,]    1
+##  [7,]    1
+##  [8,]    1
+##  [9,]    1
+## [10,]    1
+## [11,]    1
+## [12,]    1
+## [13,]    1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(Xtest,Yhat2)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{exo4_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\end{document}
