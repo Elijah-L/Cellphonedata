@@ -1,0 +1,127 @@
+---
+title: "TP_EX3"
+author: "vhinyg"
+date: "28/09/2020"
+output: html_document
+---
+
+```{r}
+tab = read.table("cellphonedata.txt", header = T,sep = ";",dec = ",")
+
+X = cbind(rep(1,length(tab[,1])-2),tab[1:(length(tab[,1])-2),1]) 
+
+```
+
+Affichages des données
+
+```{r}
+Ytest = tab[1:(length(tab[,1])-2),c(2)]
+Yfut = tab[(length(tab[,1])-1):(length(tab[,1])),c(2)]
+Xtest = tab[1:(length(tab[,1])-2),c(1)]
+Xfut = Yfut = tab[(length(tab[,1])-1):(length(tab[,1])),c(1)]
+X1 = cbind(rep(1,length(tab[,1])-2),Xtest)
+plot(Xtest,Ytest,col = 'blue4',xlab = "Year",ylab = "Number of sale",panel.first = grid(10))
+```
+
+The trend of the curve let us think that a linear model doesn't fit with data. The trend let us think about a $atan$ or an $tanh$ function between the model $\mathbf{Y}$ and the variable $\mathbf{X}$
+However we are going to give a chance to the linear model then see his limitations on predictions
+
+```{r}
+cor(tab)
+```
+However, because  $\rho_{xy} = 0.95$ we are going to give a chance to the linear model then see his limitations on predictions. First it's to notice that this cross correlations term is close to 1 because most of data are in the middle of the distribution
+
+
+\mathbf{The linear model}
+
+Estimation de $\^{\beta}$ and $\^{Y}$
+```{r}
+tab1 = tab[1:(length(tab[,1])-2),]
+(tab1)
+modreg = lm(EndUsers ~ . , data = tab1)
+summary(modreg)
+betah = modreg$coefficients
+betah #coefficient beta hat
+Yhat = X1%*%betah
+
+```
+
+
+
+
+
+
+
+
+
+
+plot of the data estimated trend
+
+```{r}
+{plot(Xtest,Yhat,xlab = "Year",ylab = "Number of sale",panel.first = grid(10)) 
+abline(betah[1],betah[2],col = 2,lty =2)
+par(new = T)
+plot(Xtest,Ytest,col = 'blue4',xlab = "Year",ylab = "Number of sale",panel.first = grid(10))}
+
+
+{plot(Xtest,Yhat - Ytest,xlab = "Year",ylab = "misfit", col = "red",panel.first = grid(10))
+abline(0,0,col = 1,lty =2)}
+```
+we can see how bad is the linear model, it doesn't fit to data. And the trend show that a prediction will give data far from the reality.
+
+Exemple let's predict Year 2020 and 2021
+
+```{r}
+Xpred  = matrix(c(1,1,2020,2021),2,2)
+Ypred = Xpred%*%betah
+misfit = Ypred - Yfut
+```
+We are going to look a for a new model.
+
+
+
+############################################################################################################
+ATTENTION !!!!!!
+
+PAS FINI!!!!!!!
+We are oing to try the sigmoid function on these data
+if $y = f(x)$ with $f(x) = \frac{1}{1+exp(-\lambda x)}$ We are going to estimate the best $\lambda$
+The inverse of $f$ is $f^{-1}(x) =  -(1/\lambda) * ln(\frac{1}{y}-1) = \alpha * ln(\frac{1}{y}-1) $
+
+We are going to estimate $\alpha$ through a linear regression between $x = year$  and $ln(\frac{1}{y}-1)$ avec $y = N_{sale}$
+
+Data
+```{r}
+Ytestb = -log(1-(1/Ytest))
+dim(tab)
+Y1 = cbind(rep(1,length(Ytestb)),Ytestb)
+Y1
+tab2 = as.data.frame(cbind(Xtest,Ytestb))
+tab2
+regmod = lm(Xtest ~ ., data = tab2)
+summary(regmod)
+
+betah2 = regmod$coefficients
+lambda= betah2[2]
+
+Xhat2 = Y1 %*% betah2
+Xhat2 
+plot(Xhat2,Ytestb)
+```
+
+We have the $\lambda$ for the simoid function now we can build the model 
+
+```{r}
+Yhat2 = 1/(1+exp(lambda*Xhat2))
+Xhat2
+lambda
+Yhat2
+plot(Xtest,Yhat2)
+```
+
+
+
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
